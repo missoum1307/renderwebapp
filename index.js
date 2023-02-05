@@ -8,7 +8,14 @@ app.get("/", function (req, res) {
 
 app.get("/tensor.bytes", function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
-  res.send(req.query.input);
+  res.send("${7*7}{{7*7}}\"--></script><img/src=x onerror=';alert(0);'>");
+});
+
+app.get("/tsv", function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Content-type", "text/tab-separated-values");
+  res.send(`Some parameter	Other parameter	Last parameter
+  CONST	123456	12.45`);
 });
 
 app.get("/test", function (req, res) {
