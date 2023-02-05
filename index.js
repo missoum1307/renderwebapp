@@ -8,7 +8,7 @@ app.get("/", function (req, res) {
 
 app.get("/tensor.bytes", function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
-  res.send("${7*7}{{7*7}}\"--></script><img/src=x onerror=';alert(0);'>");
+  res.send(req.query.input);
 });
 
 app.get("/tsv", function (req, res) {
