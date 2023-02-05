@@ -6,6 +6,11 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/tensor.bytes", function (req, res) {
+  res.set("Access-Control-Allow-Origin", "*");
+  res.send("${7*7}{{7*7}}\"--></script><img/src=x onerror=';alert(0);'>");
+});
+
 app.get("/test", function (req, res) {
   const headers = JSON.parse(req.query.header);
   for (const header in headers) {
