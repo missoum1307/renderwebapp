@@ -6,7 +6,12 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/input", function (req, res) {
+app.get("/test", function (req, res) {
+  const headers = JSON.parse(req.query.header);
+  for (const header in headers) {
+    res.set(header, headers[header]);
+  }
+
   res.send(req.query.input);
 });
 
