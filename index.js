@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 var path = require("path");
 
+app.get("/xssme", function (req, res) {
+  res.sendFile(path.join(__dirname, "xss.html"));
+});
+
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -14,8 +18,8 @@ app.get("/tensor.bytes", function (req, res) {
 app.get("/tsv", function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
   res.set("Content-type", "text/tab-separated-values");
-  res.send(`Some parameter	Other parameter	Last parameter
-  CONST	123456	12.45`);
+  res.send(`-'alert(1)-'ter	Other parameter	Last parameter
+  <-'alert(1)-'>	123456	12.45`);
 });
 
 app.get("/test", function (req, res) {

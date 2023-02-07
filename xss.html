@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <div id="xss"></div>
+
+    <script>
+      const sanitizer = (e) => {
+        return e.replace(/([\/=-_,])/g, "$1\x3cwbr\x3e");
+      };
+
+      const payload = new URLSearchParams(location.search).get("willya");
+      const element = document.getElementById("xss");
+      element.innerHTML = sanitizer(payload);
+    </script>
+  </body>
+</html>
