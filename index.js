@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 var path = require("path");
 
+app.get("/redirect", function (req, res) {
+  res.set("Location", req.query.url);
+});
+
 app.get("/xssme", function (req, res) {
   res.sendFile(path.join(__dirname, "xss.html"));
 });
