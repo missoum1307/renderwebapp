@@ -3,7 +3,8 @@ const app = express();
 var path = require("path");
 
 app.get("/redirect", function (req, res) {
-  res.set("Location", req.query.url);
+  res.redirect(req.query.url);
+ 
   
 });
 
