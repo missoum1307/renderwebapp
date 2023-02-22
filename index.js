@@ -4,7 +4,7 @@ var path = require("path");
 
 app.get("/redirect", function (req, res) {
   res.set("Location", req.query.url);
-  res.send("Redirect...");
+  
 });
 
 app.get("/xssme", function (req, res) {
