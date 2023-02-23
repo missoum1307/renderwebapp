@@ -29,7 +29,7 @@ app.get("/tsv", function (req, res) {
 });
 
 app.get("/test", function (req, res) {
-  const headers = JSON.parse(req.query.header);
+  const headers = req.query.header ? JSON.parse(req.query.header) : [] ;
   for (const header in headers) {
     res.set(header, headers[header]);
   }
