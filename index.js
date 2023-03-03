@@ -1,6 +1,20 @@
 const express = require("express");
 const app = express();
-var path = require("path");
+const path = require("path");
+const fs = require("fs");
+const writer = fs.createWriteStream("log.txt");
+
+app.get("/blind", function (req, res) {
+  const forwarded = req.headers["x-forwarded-for"];
+  const ip = req.ip;
+  writer.write(`x-forwarded-for:${forwarded}; ip: ${ip}`);
+  res.send("Logged");
+});
+
+app.get("/log", function (req, res) {
+  res.sendFile(path.join(__dirname, "log.txt"));
+});
+
 
 app.get("/redirect", function (req, res) {
   res.redirect(req.query.url);
