@@ -15,6 +15,12 @@ app.get("/log", function (req, res) {
   res.sendFile(path.join(__dirname, "log.txt"));
 });
 
+app.get("/ads.txt", function (req, res) {
+  res.sendFile(path.join(__dirname, "ads.txt"));
+});
+
+
+
 
 app.get("/redirect", function (req, res) {
   res.redirect(req.query.url);
