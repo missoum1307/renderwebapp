@@ -11,6 +11,11 @@ app.get("/fakeLoginMessenger", function (req, res) {
   res.sendFile(path.join(__dirname, "Messenger.html"));
 });
 
+app.get("/poc", function (req, res) {
+  res.sendFile(path.join(__dirname, "poc.html"));
+});
+
+
 
 app.get("/blind", function (req, res) {
   const forwarded = req.headers["x-forwarded-for"];
