@@ -52,7 +52,7 @@ app.get("/", function (req, res) {
 app.get("/tensor.bytes", function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
   res.send(`
-<script>window.addEventListener("message", a=> console.log(a))</script>${req.query.input}`);
+<script>window.addEventListener("message", a=> console.log( '%c Caught event:', 'background: #222; color: #bada55', a))</script>${req.query.input}`);
 });
 
 app.get("/tsv", function (req, res) {
