@@ -51,8 +51,12 @@ app.get("/", function (req, res) {
 
 app.get("/tensor.bytes", function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
-  res.send(`<body style="background-color:white;">
-<script>window.addEventListener("message", a=> console.log( '%c Caught event:', 'background: #222; color: #bada55', a))</script></body>${req.query.input}`);
+  res.send(`
+  <html>
+  <head> <script>window.addEventListener("message", a=> console.log( '%c Caught event:', 'background: #222; color: #bada55', a))</script></head>
+  <body style="background-color:white;">
+${req.query.input}
+</body></html>`);
 });
 
 app.get("/tsv", function (req, res) {
