@@ -76,16 +76,18 @@ app.get("/tsv", function (req, res) {
 });
 
 app.get("/buffer", function (req, res) {
-  data = req.query.data
-  let buffer = new ArrayBuffer(data.length);
-  let int8View = new Int8Array(buffer);
 
+  data = req.query.data
+  let buffer = new ArrayBuffer(data.length / 2);
+  let int8View = new Int8Array(buffer);
   for (let i = 0; i < data.length; i++) {
-    int8View[i] = data.slice(i * 2, (i * 2) + 2 ) 
-}
+    int8View[i] = data.slice(i * 2, (i * 2) + 2)
+  }
   res.set('Content-Length', buffer.byteLength);
   res.set("Content-type", "Content-Type', 'application/octet-stream");
-  res.send(buffer);
+  buffer = Buffer.from(buffer);
+
+  res.send(buffer)
 });
 
 
