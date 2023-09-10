@@ -84,8 +84,8 @@ app.get("/buffer", function (req, res) {
     int8View[i] = data.slice(i * 2, (i * 2) + 2)
   }
   res.set('Content-Length', buffer.byteLength);
-  res.set("Content-type", "Content-Type', 'application/octet-stream");
-  res.set("Content-Disposition", "Content-Disposition', 'inline");
+  res.set('Content-type', 'application/octet-stream');
+  res.set('Content-Disposition', 'inline');
 
   buffer = Buffer.from(buffer);
 
