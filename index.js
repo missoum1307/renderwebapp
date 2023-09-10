@@ -85,6 +85,8 @@ app.get("/buffer", function (req, res) {
   }
   res.set('Content-Length', buffer.byteLength);
   res.set("Content-type", "Content-Type', 'application/octet-stream");
+  res.set("Content-Disposition", "Content-Disposition', 'inline");
+
   buffer = Buffer.from(buffer);
 
   res.send(buffer)
