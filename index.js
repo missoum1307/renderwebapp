@@ -60,7 +60,7 @@ app.get("/tensor.bytes", function (req, res) {
   res.set("Access-Control-Allow-Origin", "*");
   res.send(`
   <html>
-  <head> ${req.query.input}
+  <head>
 
 <script>window.addEventListener("message", a=> console.log( '%c Caught event:', 'background: #222; color: #bada55', a))</script></head>
   <body style="background-color:white;">
