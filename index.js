@@ -36,7 +36,8 @@ app.get("/log", function (req, res) {
 });
 
 app.get("/ads.txt", function (req, res) {
-  res.sendFile(path.join(__dirname, "ads.txt"));
+  res.set('Content-Type', 'text/javascript');
+  res.send('alert(origin);');
 });
 
 
