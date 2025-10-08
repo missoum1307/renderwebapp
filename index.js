@@ -28,7 +28,6 @@ wintabxss.postMessage([{"reportingName":"\u003Cimg src=x onerror=alert(origin)\u
 
   
 
-
     
 app.get("/blind", function (req, res) {
   const forwarded = req.headers["x-forwarded-for"];
@@ -55,6 +54,11 @@ app.get("/redirect", function (req, res) {
   
 });
 
+  app.get("/WNBAPostMessageDOMXSS", function (req, res) {
+  res.sendFile(path.join(__dirname, "WNBAPostMessageDOMXSS.html"));
+});
+
+  
 app.get("/xssme", function (req, res) {
   res.sendFile(path.join(__dirname, "xss.html"));
 });
