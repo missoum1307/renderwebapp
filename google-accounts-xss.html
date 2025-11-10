@@ -72,9 +72,15 @@ Let's break it down: from line 1 to line 9, the code uses document.evaluate to l
 </pre></div>
 
 <br>
-<p>
-then executes a search (variable 'b' which is a regex for America phone number format) for a match in the returned result that is stored in variable 'a'. then if the match found assign it to variable 'f' then put it as span element's content in variable 'h'. <br>
-Line 10 and 11 was checking the tag name that HTML element from which the variable 'f' got its content, is neither one of these tags SCRIPT, STYLE, HEAD, OBJECT, TEXTAREA, INPUT, SELECT, and A, nor it has the class attribute with the name of "gc-cs-link", this checking was mainly for two things: <br> 1) prevent the extension from messing with DOM because it doesn't want to play with the content on an element such as SCRIPT, STYLE, and HEAD and doesn't achieve what it wants to do on elements like INPUT, SELECT, etc...  <br> 2) it stops the script from looping infinitely, because it doesn't want to create span element with phone number again if it already exists. </p><br>
+<p>The code then executes a search (using variable b, which is a regex for the American phone number format) for a match within the returned result stored in variable a. If a match is found, it is assigned to variable f and then placed as the content of a &#x3C;span&#x3E; element in variable h.
+
+Lines 10 and 11 check the tag name of the HTML element from which variable f got its content. It ensures the tag is neither SCRIPT, STYLE, HEAD, OBJECT, TEXTAREA, INPUT, SELECT, nor A, and also ensures it doesn't have a class attribute named "gc-cs-link". This checking serves two main purposes:
+
+Preventing DOM Interference: It stops the extension from manipulating the DOM where it's not intended, such as elements like SCRIPT, STYLE, and HEAD, or elements where adding a clickable number is not relevant, like INPUT or SELECT.
+
+Preventing Infinite Looping: It prevents the script from creating the &#x3C;span&#x3E; element with the phone number again if it already exists, effectively stopping infinite loop scenarios.
+
+From line 12 to line 27, there is an if condition: if variable k is true (meaning no element with the class attribute "gc-cs-link" has been found), it executes a try statement. Inside the try statement, another if condition checks—again using document.evaluate—if there is no element with the attribute googlevoice and the value nolinks. A final nested if condition then checks if variable a has no child elements. This is where the sink occurs:"</p><br>
 
 <p>
 	From line 12 to line 27, there is an if condition, if variable k is true, means no element with a class attribute name of "gc-cs-link" has been found, it will execute a try statement, another an if condition inside the try statement check, if there is nowhere an element with a "googlevoice" attribute and "nolinks" as its value can be found, again using the document.evaluate, then nested if condition check if the variable 'a'  has no child elements, and here is where the sink happens: <br>
