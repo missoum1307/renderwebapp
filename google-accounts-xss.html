@@ -106,7 +106,9 @@ This occurs if variable a has no child elements; otherwise, it executes the next
 
 <h2>The fix: </h2>
   	
-	<p> I believe the developer was going to execute variable 'f' that was holding the value of phone number for example  '+12223334455' on the sinks (innerHTML, insertBefore), instead for reason I couldn't understand he executes variable 'a' which was holding the payload ex: '444-555-4455  &#x3C;img src=x onerror=alert(1)&#x3E;' on the sinks, this XSS could be spared if he did not do so.
+	<p> 
+		I believe the developer intended to execute variable f, which was holding the phone number value (for example, +12223334455), on the sinks (innerHTML, insertBefore). Instead, for reasons I couldn't understand, they executed variable a, which was holding the payload (e.g., '444-555-4455  &#x3C;img src=x onerror=alert(1)&#x3E;' ) on the sinks. This XSS could have been avoided if they had not done so.
+		
  
 </p><br>
 
